@@ -1,0 +1,5 @@
+server:
+   port: 9000
+
+logging:
+   file: /home/ondetemjogo/events.log
