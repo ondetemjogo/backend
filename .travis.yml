@@ -1,0 +1,12 @@
+language: java
+before_install:
+- cd events
+script:
+- mvn clean install
+deploy:
+  provider: heroku
+  api_key:
+    secure: mLFP33FPUGvdCy7u6ZhFBZrDVkdlcaVa4FL++530c8v9HA1SVi1VI1CKRSEtibB5BKi+3jrnGj9x3RW/g4ZMltd7ySuG2c9tdRSUb74XIKVu2h0nuWSqFipWXKY0U+EUMrTx2PAL/7tS8WKhGwhMcofUnI02Sl6kfDa59spDPx931+/pVBTKP3WqUT0aHS/Peff3qOCAyQF7iy9uH5eT6n094EuA32qQlERlEJA7waANqEvNlN3miWWFAvCOHySt2wwsp+DHLDqHm6IyAUL3DhgCYr6nBF8sNXt5frM5MXGT1dLL6ep6lIOhjR7pOTr8PHtGFpM9QxEuP2IpTM72spBPGdAbARsxIFmNrgJCmk+aoolJZSaeDSsWt5E0rTqU9S6bSkaap26qmtKhoam0ztNeK4T3N+Be8oOIUjuJVmMhsp4Z6icLkwFVFjJU/nID+NUKY9XZlZnJaRziaCEYsB1Z0V0YshHE3XV0J3vJhWxZ3Jufdv4Ur81SZ6gc3tkvAg5kP3BGHU0e9ZmLQN+y7ZgQLtcnj89O2hCUkaLFcAGXBPSFjRkaYJRQg32fMwLM6DEFHCnQUysIqAhma0TPbNCttUajOrB9qOZ13QY/WicYmdRqsZN1YMuSUgcQCzQR3OCvNer1L49mweHyPcU4dqUHza3VvSHCWkW5WMGEO8g=
+  app: apiondetemjogo
+  on:
+    repo: ondetemjogo/backend
