@@ -1,17 +1,17 @@
 language: java
 jdk:
-  - oraclejdk8
+- oraclejdk8
 before_install:
-  - cd events
+- cd events
 script:
-  - mvn clean install -DskipTests=false
+- mvn clean install -DskipTests=false
 deploy:
   provider: heroku
   api_key:
-    secure: mLFP33FPUGvdCy7u6ZhFBZrDVkdlcaVa4FL++530c8v9HA1SVi1VI1CKRSEtibB5BKi+3jrnGj9x3RW/g4ZMltd7ySuG2c9tdRSUb74XIKVu2h0nuWSqFipWXKY0U+EUMrTx2PAL/7tS8WKhGwhMcofUnI02Sl6kfDa59spDPx931+/pVBTKP3WqUT0aHS/Peff3qOCAyQF7iy9uH5eT6n094EuA32qQlERlEJA7waANqEvNlN3miWWFAvCOHySt2wwsp+DHLDqHm6IyAUL3DhgCYr6nBF8sNXt5frM5MXGT1dLL6ep6lIOhjR7pOTr8PHtGFpM9QxEuP2IpTM72spBPGdAbARsxIFmNrgJCmk+aoolJZSaeDSsWt5E0rTqU9S6bSkaap26qmtKhoam0ztNeK4T3N+Be8oOIUjuJVmMhsp4Z6icLkwFVFjJU/nID+NUKY9XZlZnJaRziaCEYsB1Z0V0YshHE3XV0J3vJhWxZ3Jufdv4Ur81SZ6gc3tkvAg5kP3BGHU0e9ZmLQN+y7ZgQLtcnj89O2hCUkaLFcAGXBPSFjRkaYJRQg32fMwLM6DEFHCnQUysIqAhma0TPbNCttUajOrB9qOZ13QY/WicYmdRqsZN1YMuSUgcQCzQR3OCvNer1L49mweHyPcU4dqUHza3VvSHCWkW5WMGEO8g=
+    secure: iCRAf5bCWioBC5wUgHJeJxhE6b1g1HTz6QiSI7EchKQ7XbtZ6KCSZ2v04b30y0zslw3o4gGFafkoH9Q/AFbQs/HkhTbG4vzYw4b8NOKbEDEl9z+6SJdKBHK47xHBzCn2EQfwYbQT4noYaJiJsLbMzgw/6gSs8uMuapiniXrwoFqsOGweYPXM3GrWpQ38dx5a2FR644WrPjAOIMf5lQaDPfifVpnMPQTNAI5dlCnGn2/g995kFlkByYJiEyU2A4wt+/MSTCZ53IHJLt/IHWlYeNHMeEf1g3CTM6gaW0gBgjAmRa40jiaIhWUV0ZAfWWAGKkAqJj0I6uXeBdrKYBSKfO/TDl77+hl98ibBieu1HloVyXQ6wvwKk+p9HQhEiIEhoTat6+V28fUzYxRtG9pO2sM0jZhwcNnsC9njJcyBBvbZBTWtI36tYODeH6H54yjnidJeOAb6FEmR8MhKeZHMy81FrBXLJtrmbwTMqo9VnbFQL232TrgTR7lPSAb2TjE5v/vkKNKofqT5hIgD5ZW1gtPNvoF4V3eN9KzFMpIq1iVAvAEMKsEHHfXl0AT0t4afUJ2+bItIReCNiSpLgsc+oV5sEGRQumW1jZd3unA24kOc6RYKLaqJjHQmXy2EZxzq9s6GNG3bgMRPSsGK+2FP91Q8RWCTFNIVq+506CC514o=
   app: apiondetemjogo
   on:
     repo: ondetemjogo/backend
 cache:
   directories:
-    - '$HOME/.m2/repository'
+  - "$HOME/.m2/repository"
