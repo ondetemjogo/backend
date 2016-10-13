@@ -4,7 +4,7 @@ jdk:
 before_install:
 - cd events
 script:
-- mvn clean install
+- mvn clean install -DskipTests=false
 deploy:
   provider: heroku
   api_key:
