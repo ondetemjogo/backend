@@ -1,8 +1,10 @@
 language: java
+jdk:
+  - oraclejdk8
 before_install:
-- cd events
+  - cd events
 script:
-- mvn clean install
+  - mvn clean install -DskipTests=false
 deploy:
   provider: heroku
   api_key:
@@ -10,3 +12,6 @@ deploy:
   app: apiondetemjogo
   on:
     repo: ondetemjogo/backend
+cache:
+  directories:
+    - '$HOME/.m2/repository'
