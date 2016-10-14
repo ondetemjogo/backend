@@ -1,0 +1,1 @@
+web: java -jar events/target/events.jar
