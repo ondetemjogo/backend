@@ -13,17 +13,17 @@ public class Team {
 	@Id
 	@SequenceGenerator(name = "SEQ_TEAM", sequenceName = "GEN_TEAM_ID", allocationSize = 1)
 	@GeneratedValue(generator = "SEQ_TEAM", strategy = GenerationType.SEQUENCE)
-	private Integer id;
+	private Integer idTeam;
 	@Column(nullable = false)
 	private String name;
 	private String image;
 
-	public Integer getId() {
-		return id;
+	public Integer getIdTeam() {
+		return idTeam;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setIdTeam(Integer idTeam) {
+		this.idTeam = idTeam;
 	}
 
 	public String getName() {
