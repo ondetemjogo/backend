@@ -13,8 +13,7 @@ public class EventsController {
 
 	@RequestMapping(value = "/search/{search}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<String> getBalance(@PathVariable("search") String search) {
-			
-         return ResponseEntity.ok().body("{\"you\":\"are good\"}");
+         return ResponseEntity.ok().body("{\"you typed\":\""+search+"\"}");
 	}
 
 }
