@@ -19,6 +19,7 @@ public class Event {
 	@Id
 	@SequenceGenerator(name = "SEQ_EVENT", sequenceName = "GEN_EVENT_ID", allocationSize = 1)
 	@GeneratedValue(generator = "SEQ_EVENT", strategy = GenerationType.SEQUENCE)
+	@Column(name = "id_event")
 	private Long idEvent;
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(nullable = false)

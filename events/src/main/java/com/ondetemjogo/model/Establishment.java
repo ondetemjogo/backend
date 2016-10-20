@@ -13,19 +13,20 @@ public class Establishment {
 	@Id
 	@SequenceGenerator(name = "SEQ_ESTABLISH", sequenceName = "GEN_ESTABLISH_ID", allocationSize = 1)
 	@GeneratedValue(generator = "SEQ_ESTABLISH", strategy = GenerationType.SEQUENCE)
-	private Integer idEstablish;
+	@Column(name = "id_establishment")
+	private Long idEstablishment;
 	@Column(nullable = false)
 	private String name;
 	@Column(nullable = false)
 	private String address;
 	private String image;
 
-	public Integer getIdEstablish() {
-		return idEstablish;
+	public Long getIdEstablishment() {
+		return idEstablishment;
 	}
 
-	public void setIdEstablish(Integer idEstablish) {
-		this.idEstablish = idEstablish;
+	public void setIdEstablishment(Long idEstablishment) {
+		this.idEstablishment = idEstablishment;
 	}
 
 	public String getName() {
