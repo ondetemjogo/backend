@@ -17,6 +17,10 @@ import com.ondetemjogo.model.Event;
 
 public class EventSpecification {
 
+	private EventSpecification() {
+		
+	}
+	
 	public static Specification<Event> findEvents(Date date, String search) {
 		return new Specification<Event>() {
 
