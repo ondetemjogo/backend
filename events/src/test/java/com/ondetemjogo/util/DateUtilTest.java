@@ -1,5 +1,6 @@
 package com.ondetemjogo.util;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import org.junit.Assert;
@@ -11,28 +12,37 @@ public class DateUtilTest {
 	public void shouldResetHour() {
 		Date date = new Date();
 		date = DateUtil.resetHour(date);
-		Assert.assertEquals(date.getHours(), 0);
+		Date newDate = DateUtil.resetHour(date);
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(newDate);
+		Assert.assertEquals(calendar.get(Calendar.HOUR_OF_DAY), 0);
 	}
 
 	@Test
 	public void shouldResetMinute() {
 		Date date = new Date();
-		date = DateUtil.resetHour(date);
-		Assert.assertEquals(date.getMinutes(), 0);
+		Date newDate = DateUtil.resetHour(date);
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(newDate);
+		Assert.assertEquals(calendar.get(Calendar.MINUTE), 0);
 	}
 
 	@Test
 	public void shouldResetSecond() {
 		Date date = new Date();
-		date = DateUtil.resetHour(date);
-		Assert.assertEquals(date.getSeconds(), 0);
+		Date newDate = DateUtil.resetHour(date);
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(newDate);
+		Assert.assertEquals(calendar.get(Calendar.SECOND), 0);
 	}
 
 	@Test
 	public void shouldResetMillisecond() {
 		Date date = new Date();
-		date = DateUtil.resetHour(date);
-		Assert.assertEquals(date.getSeconds() * 1000, 0);
+		Date newDate = DateUtil.resetHour(date);
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(newDate);
+		Assert.assertEquals(calendar.get(Calendar.MILLISECOND), 0);
 	}
 
 }
