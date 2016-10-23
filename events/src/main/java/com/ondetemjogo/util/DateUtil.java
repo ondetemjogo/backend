@@ -12,7 +12,7 @@ public class DateUtil {
 		calendar.set(Calendar.MINUTE, 0);
 		calendar.set(Calendar.SECOND, 0);
 		calendar.set(Calendar.MILLISECOND, 0);
-		date = calendar.getTime();
-		return date;
+		Date newDate = calendar.getTime();
+		return newDate;
 	}
 }
