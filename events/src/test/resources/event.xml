@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<event id_event="1" date="2016-10-22 20:00:00" id_establishment="1" id_house_team="1" id_visit_team="2"/>
+	<event id_event="2" date="2016-10-22 20:00:00" id_establishment="2" id_house_team="3" id_visit_team="4"/>
+	<event id_event="3" date="2016-10-21 20:00:00" id_establishment="2" id_house_team="3" id_visit_team="4"/>
+	<event id_event="4" date="2016-10-23 20:00:00" id_establishment="2" id_house_team="3" id_visit_team="4"/>
+</dataset>

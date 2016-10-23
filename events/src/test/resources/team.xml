@@ -2,4 +2,6 @@
 <dataset>
 	<team id_team="1" name="Flamengo" />
 	<team id_team="2" name="Palmeiras" />
+	<team id_team="3" name="Corinthians" />
+	<team id_team="4" name="São Paulo" />
 </dataset>

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
 	<establishment id_establishment="1" name="Bar da Pinga" address="R. Fim da Saída"/>
+	<establishment id_establishment="2" name="Barzinho do Jogo" address="Av Brasil"/>
 </dataset>

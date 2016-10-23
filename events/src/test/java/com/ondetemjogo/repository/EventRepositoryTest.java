@@ -1,12 +1,16 @@
 package com.ondetemjogo.repository;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.test.context.TestExecutionListeners;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
@@ -18,6 +22,7 @@ import com.github.springtestdbunit.annotation.DatabaseSetup;
 import com.ondetemjogo.model.Establishment;
 import com.ondetemjogo.model.Event;
 import com.ondetemjogo.model.Team;
+import com.ondetemjogo.specification.EventSpecification;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -54,6 +59,61 @@ public class EventRepositoryTest {
 		
 		Event newEvent = repository.saveAndFlush(event);
 		Assert.assertNotNull(newEvent);
+	}
+	
+	@Test
+	@DatabaseSetup("/establishment.xml")
+	@DatabaseSetup("/team.xml")
+	@DatabaseSetup("/event.xml")
+	public void shouldSearchEventOnlyDate() throws ParseException {
+		Date date = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss.sss").parse("22-10-2016 00:00:00.000");
+		Specification<Event> spec = EventSpecification.findEvents(date, null);
+		List<Event> events = repository.findAll(spec);
+		Assert.assertEquals(3, events.size());
+	}
+	
+	@Test
+	@DatabaseSetup("/establishment.xml")
+	@DatabaseSetup("/team.xml")
+	@DatabaseSetup("/event.xml")
+	public void shouldSearchEventWithEstablishmentName() throws ParseException {
+		Date date = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss.sss").parse("22-10-2016 00:00:00.000");
+		Specification<Event> spec = EventSpecification.findEvents(date, "pinga");
+		List<Event> events = repository.findAll(spec);
+		Assert.assertEquals(1, events.size());
+	}
+	
+	@Test
+	@DatabaseSetup("/establishment.xml")
+	@DatabaseSetup("/team.xml")
+	@DatabaseSetup("/event.xml")
+	public void shouldSearchEventWithEstablishmentAddress() throws ParseException {
+		Date date = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss.sss").parse("22-10-2016 00:00:00.000");
+		Specification<Event> spec = EventSpecification.findEvents(date, "Fim");
+		List<Event> events = repository.findAll(spec);
+		Assert.assertEquals(1, events.size());
+	}
+
+	@Test
+	@DatabaseSetup("/establishment.xml")
+	@DatabaseSetup("/team.xml")
+	@DatabaseSetup("/event.xml")
+	public void shouldSearchEventWithHouseTeamName() throws ParseException {
+		Date date = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss.sss").parse("22-10-2016 00:00:00.000");
+		Specification<Event> spec = EventSpecification.findEvents(date, "mengo");
+		List<Event> events = repository.findAll(spec);
+		Assert.assertEquals(1, events.size());
+	}
+	
+	@Test
+	@DatabaseSetup("/establishment.xml")
+	@DatabaseSetup("/team.xml")
+	@DatabaseSetup("/event.xml")
+	public void shouldSearchEventWithVisitTeamName() throws ParseException {
+		Date date = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss.sss").parse("22-10-2016 00:00:00.000");
+		Specification<Event> spec = EventSpecification.findEvents(date, "Palme");
+		List<Event> events = repository.findAll(spec);
+		Assert.assertEquals(1, events.size());
 	}
 
 }
