@@ -2,14 +2,14 @@ spring:
    jpa:
       generate-ddl: true
       hibernate:
-         ddl-auto: create-drop
+         ddl-auto: update
       show-sql: true
    otj:
       datasource:
-         driver-class-name: org.h2.Driver
-         url: jdbc:h2:~/otj
-         username: sa
-         password: sa
+         driver-class-name: org.postgresql.Driver
+         url: ${JDBC_DATABASE_URL}
+         username: ${JDBC_DATABASE_USERNAME}
+         password: ${JDBC_DATABASE_PASSWORD}
 
 server:
    port: 9000

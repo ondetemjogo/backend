@@ -24,6 +24,7 @@
 		<app.encoding>UTF-8</app.encoding>
 		<project.build.sourceEncoding>${app.encoding}</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>${app.encoding}</project.reporting.outputEncoding>
+		<postgresql.version>9.4.1208</postgresql.version>
 	</properties>
 
 	<dependencies>
@@ -70,6 +71,7 @@
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
+			<scope>test</scope>
 		</dependency>
 		<!-- Mockito -->
 		<dependency>
@@ -96,6 +98,11 @@
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>3.4</version>
+		</dependency>
+		<!-- PostgreSQL -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
 		</dependency>
 	</dependencies>
 
