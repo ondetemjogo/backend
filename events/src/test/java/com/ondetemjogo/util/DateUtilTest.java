@@ -11,7 +11,6 @@ public class DateUtilTest {
 	@Test
 	public void shouldResetHour() {
 		Date date = new Date();
-		date = DateUtil.resetHour(date);
 		Date newDate = DateUtil.resetHour(date);
 		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(newDate);
