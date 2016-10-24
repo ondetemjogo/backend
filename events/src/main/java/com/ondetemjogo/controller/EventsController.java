@@ -24,8 +24,13 @@ public class EventsController {
 	@Autowired
 	private EventService eventService;
 	
+	@RequestMapping(value = "/search", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public ResponseEntity<Set<EventDTO>> getEvents() {
+		return getEventsWithSearch(null);
+	}
+	
 	@RequestMapping(value = "/search/{search}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public ResponseEntity<Set<EventDTO>> getBalance(@PathVariable("search") String search) {
+	public ResponseEntity<Set<EventDTO>> getEventsWithSearch(@PathVariable("search") String search) {
 		List<Event> events = eventService.getEvents(search);
 		Set<EventDTO> eventsDTO = new HashSet<>();
 		for (Event event : events) {

@@ -63,4 +63,21 @@ public class EventsControllerTest {
 		this.mvc.perform(get("/api/v1/search/Flamengo").accept(MediaType.APPLICATION_JSON_UTF8))
 				.andExpect(status().isOk()).andExpect(content().string(expected));
 	}
+	
+	@Test
+	public void shouldCallServiceWithoutSearch() throws Exception {
+		List<EventDTO> events = new ArrayList<>();
+		Event event = new Event();
+		event.setDate(new Date());
+		event.setEstablishment(new EstablishmentStub());
+		event.setHouseTeam(new TeamStub());
+		event.setVisitTeam(new TeamStub());
+		events.add(new EventAdapter(event).build());
+		String expected = json.write(events).getJson();
+		
+		given(eventService.getEvents(null)).willReturn(Arrays.asList(event));
+
+		this.mvc.perform(get("/api/v1/search/").accept(MediaType.APPLICATION_JSON_UTF8))
+				.andExpect(status().isOk()).andExpect(content().string(expected));
+	}
 }
