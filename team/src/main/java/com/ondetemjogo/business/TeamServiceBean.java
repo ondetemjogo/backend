@@ -10,7 +10,6 @@ public class TeamServiceBean implements TeamService {
 	private TeamRepository teamRepository;
 
 	public List<Team> getTeams(String search) {
-
 		return teamRepository.findAllByNameLike(search);
 	}
 

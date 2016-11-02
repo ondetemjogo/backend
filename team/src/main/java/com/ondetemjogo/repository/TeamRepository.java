@@ -9,5 +9,5 @@ import com.ondetemjogo.model.Team;
 public interface TeamRepository extends JpaRepository<Team, Long> {
 
 	List<Team> findAllByNameLike(String search);
-
+	
 }
