@@ -11,9 +11,7 @@ public class TeamServiceBean implements TeamService {
 
 	public List<Team> getTeams(String search) {
 
-		
-		
-		return teamRepository.findAll();
+		return teamRepository.findAllByNameLike(search);
 	}
 
 }

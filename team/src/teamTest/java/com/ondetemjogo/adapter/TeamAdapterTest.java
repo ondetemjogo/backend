@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import com.ondetemjogo.model.Team;
 
-public class TeamADapterTest {
+public class TeamAdapterTest {
 
 	@Test
 	public void shouldDoesntThrowErrorWithNullEvent() {
