@@ -2,41 +2,23 @@ package com.ondetemjogo.dto;
 
 public class TeamDTO {
 
-	private String houseTeamName;
-	private String imageHouseTeam;
-	private String visitTeamName;
-	private String imagemVisitTeam;
+	private String teamName;
+	private String teamImage;
 
-	public String getHouseTeamName() {
-		return houseTeamName;
+	public String getTeamName() {
+		return teamName;
 	}
 
-	public void setHouseTeamName(String houseTeamName) {
-		this.houseTeamName = houseTeamName;
+	public void setTeamName(String teamName) {
+		this.teamName = teamName;
 	}
 
-	public String getImageHouseTeam() {
-		return imageHouseTeam;
+	public String getTeamImage() {
+		return teamImage;
 	}
 
-	public void setImageHouseTeam(String imageHouseTeam) {
-		this.imageHouseTeam = imageHouseTeam;
-	}
-
-	public String getVisitTeamName() {
-		return visitTeamName;
-	}
-
-	public void setVisitTeamName(String visitTeamName) {
-		this.visitTeamName = visitTeamName;
-	}
-
-	public String getImagemVisitTeam() {
-		return imagemVisitTeam;
-	}
-
-	public void setImagemVisitTeam(String imagemVisitTeam) {
-		this.imagemVisitTeam = imagemVisitTeam;
+	public void setTeamImage(String teamImage) {
+		this.teamImage = teamImage;
 	}
 
 }

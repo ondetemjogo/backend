@@ -1,0 +1,22 @@
+spring:
+   jpa:
+      generate-ddl: true
+      hibernate:
+         ddl-auto: create-drop
+      show-sql: true
+   otj:
+      datasource:
+         driver-class-name: org.h2.Driver
+         url: jdbc:h2:~/otj
+         username: sa
+         password: sa
+   jackson:
+      serialization:
+         write-dates-as-timestamps: false
+      serialization-inclusion: NON_NULL
+
+server:
+   port: 9000
+
+logging:
+   file: /home/ondetemjogo/teams.log

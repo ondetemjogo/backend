@@ -1,4 +1,4 @@
-package com.ondetemjogo.service;
+package com.ondetemjogo.business;
 
 import java.util.List;
 
