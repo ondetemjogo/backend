@@ -6,7 +6,7 @@ import com.ondetemjogo.model.Event;
 public class EventAdapter {
 
 	private Event event;
-	
+
 	public EventAdapter(Event event) {
 		this.event = event;
 	}
