@@ -5,27 +5,15 @@
 
 	<groupId>com.ondetemjogo</groupId>
 	<artifactId>events</artifactId>
-	<version>1.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>Plataforma Onde Tem Jogo :: Events</name>
 
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.4.1.RELEASE</version>
-		<relativePath />
+		<groupId>com.ondetemjogo</groupId>
+		<artifactId>ondetemjogo</artifactId>
+		<version>1.0-SNAPSHOT</version>
 	</parent>
-
-	<properties>
-		<java.version>1.8</java.version>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
-		<app.encoding>UTF-8</app.encoding>
-		<project.build.sourceEncoding>${app.encoding}</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>${app.encoding}</project.reporting.outputEncoding>
-		<postgresql.version>9.4.1208</postgresql.version>
-	</properties>
 
 	<dependencies>
 		<!-- Spring Boot -->
@@ -83,21 +71,18 @@
 		<dependency>
 			<groupId>org.dbunit</groupId>
 			<artifactId>dbunit</artifactId>
-			<version>2.5.0</version>
 			<scope>test</scope>
 		</dependency>
 		<!-- Spring Dbunit -->
 		<dependency>
 			<groupId>com.github.springtestdbunit</groupId>
 			<artifactId>spring-test-dbunit</artifactId>
-			<version>1.2.0</version>
 			<scope>test</scope>
 		</dependency>
 		<!-- Apache Commons Lang 3 -->
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
-			<version>3.4</version>
 		</dependency>
 		<!-- PostgreSQL -->
 		<dependency>
@@ -105,15 +90,9 @@
 			<artifactId>postgresql</artifactId>
 		</dependency>
 	</dependencies>
-
+	
 	<build>
 		<finalName>events</finalName>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
 	</build>
 
 </project>
