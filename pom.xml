@@ -11,7 +11,7 @@
 	<name>Plataforma Onde Tem Jogo :: ALL</name>
 
 	<modules>
-		<module>events</module>
+		<module>event</module>
 		<module>team</module>
 		<module>new-event</module>
 	</modules>

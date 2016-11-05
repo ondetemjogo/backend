@@ -92,7 +92,7 @@
 	</dependencies>
 	
 	<build>
-		<finalName>events</finalName>
+		<finalName>event</finalName>
 	</build>
 
 </project>
