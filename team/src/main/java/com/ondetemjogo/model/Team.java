@@ -18,29 +18,25 @@ public class Team {
 	@Column(nullable = false)
 	private String name;
 	private String image;
-
-	public Long getIdVisitTeam() {
+	
+	public Long getIdTeam() {
 		return idTeam;
 	}
-
-	public void setIdVisitTeam(Long idVisitTeam) {
-		this.idTeam = idVisitTeam;
+	public void setIdTeam(Long idTeam) {
+		this.idTeam = idTeam;
 	}
-
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
 		this.name = name;
 	}
-
 	public String getImage() {
 		return image;
 	}
-
 	public void setImage(String image) {
 		this.image = image;
 	}
+
 
 }
