@@ -8,10 +8,10 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
-import org.assertj.core.util.DateUtil;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.BDDMockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -26,6 +26,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ondetemjogo.business.EventService;
 import com.ondetemjogo.dto.ErrorDTO;
 import com.ondetemjogo.dto.EventDTO;
+import com.ondetemjogo.exception.BusinessException;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(EventController.class)
@@ -54,7 +55,6 @@ public class EventControllerTest {
 		
 		ErrorDTO error = new ErrorDTO();
 		error.setField("date");
-		error.setRejectedValue(null);
 		error.setError("may not be null");
 		String expected = jsonError.write(Arrays.asList(error)).getJson();
 
@@ -70,7 +70,6 @@ public class EventControllerTest {
 		
 		ErrorDTO error = new ErrorDTO();
 		error.setField("establishment");
-		error.setRejectedValue(null);
 		error.setError("may not be null");
 		String expected = jsonError.write(Arrays.asList(error)).getJson();
 
@@ -86,7 +85,6 @@ public class EventControllerTest {
 		
 		ErrorDTO error = new ErrorDTO();
 		error.setField("houseTeam");
-		error.setRejectedValue(null);
 		error.setError("may not be null");
 		String expected = jsonError.write(Arrays.asList(error)).getJson();
 
@@ -102,10 +100,32 @@ public class EventControllerTest {
 		
 		ErrorDTO error = new ErrorDTO();
 		error.setField("visitTeam");
-		error.setRejectedValue(null);
 		error.setError("may not be null");
 		String expected = jsonError.write(Arrays.asList(error)).getJson();
 
+		this.mvc.perform(post("/api/v1/event").contentType(MediaType.APPLICATION_JSON_UTF8_VALUE).content(content))
+				.andExpect(status().isBadRequest()).andExpect(content().string(expected));
+	}
+	
+	@Test
+	public void shouldSave() throws Exception {
+		EventDTO event = newEvent();
+		String content = json.write(event).getJson();
+		
+		this.mvc.perform(post("/api/v1/event").contentType(MediaType.APPLICATION_JSON_UTF8_VALUE).content(content))
+				.andExpect(status().isOk());
+	}
+
+	@Test
+	public void shouldReturnBusinessError() throws Exception {
+		EventDTO event = newEvent();
+		String content = json.write(event).getJson();
+		
+		ErrorDTO error = new ErrorDTO();
+		error.setError("Some business error");
+		String expected = jsonError.write(Arrays.asList(error)).getJson();
+
+		BDDMockito.doThrow(new BusinessException("Some business error")).when(eventService).save(event);
 		this.mvc.perform(post("/api/v1/event").contentType(MediaType.APPLICATION_JSON_UTF8_VALUE).content(content))
 				.andExpect(status().isBadRequest()).andExpect(content().string(expected));
 	}

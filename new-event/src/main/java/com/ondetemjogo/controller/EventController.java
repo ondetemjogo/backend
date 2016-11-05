@@ -1,7 +1,6 @@
 package com.ondetemjogo.controller;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,7 +9,6 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.BindException;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -24,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ondetemjogo.business.EventService;
 import com.ondetemjogo.dto.ErrorDTO;
 import com.ondetemjogo.dto.EventDTO;
-import com.ondetemjogo.util.DateUtil;
+import com.ondetemjogo.exception.BusinessException;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -36,12 +34,17 @@ public class EventController {
 	@RequestMapping(value = "/event", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseStatus(value = HttpStatus.OK)
 	public void newEvent(@Valid @RequestBody EventDTO eventDTO) throws BindException {
-		if (eventDTO.getDate().before(DateUtil.resetHour(new Date()))) {
-			BeanPropertyBindingResult errors = new BeanPropertyBindingResult(eventDTO, "eventDTO");
-			errors.rejectValue("date", null, "date cannot be in past");
-			throw new BindException(errors);
-		}
-		
+		eventService.save(eventDTO);		
+	}
+	
+	@ExceptionHandler(BusinessException.class)
+	@ResponseStatus(value = HttpStatus.BAD_REQUEST)
+	public List<ErrorDTO> handleException(BusinessException ex, HttpServletRequest request) {
+	    ArrayList<ErrorDTO> errors = new ArrayList<ErrorDTO>();
+    	ErrorDTO error = new ErrorDTO();
+    	error.setError(ex.getError());
+    	errors.add(error);
+		return errors;
 	}
 
 	@ExceptionHandler(BindException.class)
