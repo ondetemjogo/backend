@@ -4,10 +4,10 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.ondetemjogo</groupId>
-	<artifactId>events</artifactId>
+	<artifactId>event</artifactId>
 	<packaging>jar</packaging>
 
-	<name>Plataforma Onde Tem Jogo :: Events</name>
+	<name>Plataforma Onde Tem Jogo :: Event</name>
 
 	<parent>
 		<groupId>com.ondetemjogo</groupId>

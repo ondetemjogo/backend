@@ -31,9 +31,9 @@ import com.ondetemjogo.stub.EstablishmentStub;
 import com.ondetemjogo.stub.TeamStub;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(EventsController.class)
+@WebMvcTest(EventController.class)
 @AutoConfigureMockMvc
-public class EventsControllerTest {
+public class EventControllerTest {
 
 	private JacksonTester<List<EventDTO>> json;
 	@Autowired
@@ -60,7 +60,7 @@ public class EventsControllerTest {
 		
 		given(eventService.getEvents("Flamengo")).willReturn(Arrays.asList(event));
 
-		this.mvc.perform(get("/api/v1/search/Flamengo").accept(MediaType.APPLICATION_JSON_UTF8))
+		this.mvc.perform(get("/api/v1/event/Flamengo").accept(MediaType.APPLICATION_JSON_UTF8))
 				.andExpect(status().isOk()).andExpect(content().string(expected));
 	}
 	
@@ -77,7 +77,7 @@ public class EventsControllerTest {
 		
 		given(eventService.getEvents(null)).willReturn(Arrays.asList(event));
 
-		this.mvc.perform(get("/api/v1/search/").accept(MediaType.APPLICATION_JSON_UTF8))
+		this.mvc.perform(get("/api/v1/event/").accept(MediaType.APPLICATION_JSON_UTF8))
 				.andExpect(status().isOk()).andExpect(content().string(expected));
 	}
 }

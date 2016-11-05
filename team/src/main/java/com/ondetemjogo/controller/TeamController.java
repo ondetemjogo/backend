@@ -24,7 +24,7 @@ public class TeamController {
 	@Autowired
 	private TeamService teamService;
 
-	@RequestMapping(value = { "/search", "/search/{search}" }, method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(value = { "/team", "/team/{search}" }, method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<Set<TeamDTO>> getEventsWithSearch(@PathVariable(value = "search", required = false) String search) {
 
 		List<Team> events = teamService.getTeams(search);
