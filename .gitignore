@@ -6,3 +6,4 @@
 **/.settings/org.hibernate.eclipse.console.prefs
 **/.gitignore
 **/target
+**/bin
