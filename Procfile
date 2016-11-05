@@ -1,1 +1,1 @@
-web: java -jar events/target/events.jar
+web: java -jar target/*.jar
