@@ -18,7 +18,7 @@ public class TeamServiceBeanTest {
 
 	@Test
 	public void shouldReturnTeams() {
-
+		
 	}
 
 }

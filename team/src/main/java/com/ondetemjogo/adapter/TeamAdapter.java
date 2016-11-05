@@ -17,8 +17,9 @@ public class TeamAdapter {
 		}
 
 		TeamDTO teamDTO = new TeamDTO();
-		teamDTO.setTeamName(team.getName());
-		teamDTO.setTeamImage(team.getImage());
+		teamDTO.setId(team.getIdTeam());
+		teamDTO.setImage(team.getImage());
+		teamDTO.setName(team.getName());
 		return teamDTO;
 	}
 

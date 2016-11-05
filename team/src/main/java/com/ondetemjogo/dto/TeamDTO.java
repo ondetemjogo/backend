@@ -2,23 +2,29 @@ package com.ondetemjogo.dto;
 
 public class TeamDTO {
 
-	private String teamName;
-	private String teamImage;
-
-	public String getTeamName() {
-		return teamName;
+	private Long id;
+	private String name;
+	private String image;
+	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
 	}
 
-	public void setTeamName(String teamName) {
-		this.teamName = teamName;
-	}
 
-	public String getTeamImage() {
-		return teamImage;
-	}
-
-	public void setTeamImage(String teamImage) {
-		this.teamImage = teamImage;
-	}
 
 }
