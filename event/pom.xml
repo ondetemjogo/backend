@@ -90,9 +90,5 @@
 			<artifactId>postgresql</artifactId>
 		</dependency>
 	</dependencies>
-	
-	<build>
-		<finalName>event</finalName>
-	</build>
 
 </project>

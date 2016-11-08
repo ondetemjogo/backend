@@ -24,12 +24,13 @@ import org.springframework.test.web.servlet.MockMvc;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ondetemjogo.business.EventService;
+import com.ondetemjogo.controller.NewEventController;
 import com.ondetemjogo.dto.ErrorDTO;
 import com.ondetemjogo.dto.EventDTO;
 import com.ondetemjogo.exception.BusinessException;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(EventController.class)
+@WebMvcTest(NewEventController.class)
 @AutoConfigureMockMvc
 public class EventControllerTest {
 

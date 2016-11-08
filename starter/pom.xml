@@ -4,10 +4,10 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.ondetemjogo</groupId>
-	<artifactId>new-event</artifactId>
+	<artifactId>starter</artifactId>
 	<packaging>jar</packaging>
 
-	<name>Plataforma Onde Tem Jogo :: New Event</name>
+	<name>Plataforma Onde Tem Jogo :: Starter</name>
 
 	<parent>
 		<groupId>com.ondetemjogo</groupId>
@@ -89,6 +89,26 @@
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.ondetemjogo</groupId>
+			<artifactId>event</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.ondetemjogo</groupId>
+			<artifactId>new-event</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 	</dependencies>
+
+	<build>
+		<finalName>starter</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>

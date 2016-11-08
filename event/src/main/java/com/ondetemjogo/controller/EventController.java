@@ -18,13 +18,12 @@ import com.ondetemjogo.dto.EventDTO;
 import com.ondetemjogo.model.Event;
 
 @RestController
-@RequestMapping("/api/v1")
 public class EventController {
 
 	@Autowired
 	private EventService eventService;
 	
-	@RequestMapping(value = {"/event", "/event/{search}"}, method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(value = {"/api/v1/event", "/api/v1/event/{search}"}, method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ResponseEntity<Set<EventDTO>> getEventsWithSearch(@PathVariable(value = "search", required = false) String search) {
 		List<Event> events = eventService.getEvents(search);
 		Set<EventDTO> eventsDTO = new HashSet<>();

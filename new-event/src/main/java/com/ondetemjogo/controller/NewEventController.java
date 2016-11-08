@@ -25,13 +25,12 @@ import com.ondetemjogo.dto.EventDTO;
 import com.ondetemjogo.exception.BusinessException;
 
 @RestController
-@RequestMapping("/api/v1")
-public class EventController {
+public class NewEventController {
 
 	@Autowired
 	private EventService eventService;
 	
-	@RequestMapping(value = "/event", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(value = "/api/v1/event", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseStatus(value = HttpStatus.OK)
 	public void newEvent(@Valid @RequestBody EventDTO eventDTO) throws BindException {
 		eventService.save(eventDTO);		
