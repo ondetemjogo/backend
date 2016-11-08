@@ -23,3 +23,8 @@ server:
 
 logging:
    file: /home/ondetemjogo/starter.log
+   
+endpoints:
+   cors:
+      allowed-origins: http://localhost:8080/, http://ondetemjogo.herokuapp.com/, https://ondetemjogo.herokuapp.com/
+      allowed-methods: GET,POST
