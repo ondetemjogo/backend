@@ -22,4 +22,4 @@ server:
    port: 9000
 
 logging:
-   file: /home/ondetemjogo/teams.log
+   file: /home/ondetemjogo/starter.log
