@@ -57,13 +57,13 @@ public class EventControllerTest {
 		event.setVisitTeam(new TeamStub());
 		events.add(new EventAdapter(event).build());
 		String expected = json.write(events).getJson();
-		
+
 		given(eventService.getEvents("Flamengo")).willReturn(Arrays.asList(event));
 
 		this.mvc.perform(get("/api/v1/event/Flamengo").accept(MediaType.APPLICATION_JSON_UTF8))
 				.andExpect(status().isOk()).andExpect(content().string(expected));
 	}
-	
+
 	@Test
 	public void shouldCallServiceWithoutSearch() throws Exception {
 		List<EventDTO> events = new ArrayList<>();
@@ -74,10 +74,10 @@ public class EventControllerTest {
 		event.setVisitTeam(new TeamStub());
 		events.add(new EventAdapter(event).build());
 		String expected = json.write(events).getJson();
-		
+		System.out.println(expected);
 		given(eventService.getEvents(null)).willReturn(Arrays.asList(event));
 
-		this.mvc.perform(get("/api/v1/event/").accept(MediaType.APPLICATION_JSON_UTF8))
-				.andExpect(status().isOk()).andExpect(content().string(expected));
+		this.mvc.perform(get("/api/v1/event/").accept(MediaType.APPLICATION_JSON_UTF8)).andExpect(status().isOk())
+				.andExpect(content().string(expected));
 	}
 }
