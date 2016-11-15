@@ -8,35 +8,39 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
 @Entity
-public class Team {
+public class Establishment {
 
 	@Id
-	@SequenceGenerator(name = "SEQ_TEAM", sequenceName = "GEN_TEAM_ID", allocationSize = 1)
-	@GeneratedValue(generator = "SEQ_TEAM", strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "SEQ_ESTABLISHMENT", sequenceName = "GEN_ESTABLISHMENT_ID", allocationSize = 1)
+	@GeneratedValue(generator = "SEQ_ESTABLISHMENT", strategy = GenerationType.SEQUENCE)
 	@Column(name = "id_team")
-	private Long idTeam;
+	private int idEstablishment;
 	@Column(nullable = false)
 	private String name;
 	private String image;
-	
-	public Long getIdTeam() {
-		return idTeam;
+
+	public int getIdEstablishment() {
+		return idEstablishment;
 	}
-	public void setIdTeam(Long idTeam) {
-		this.idTeam = idTeam;
+
+	public void setIdEstablishment(int idEstablishment) {
+		this.idEstablishment = idEstablishment;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getImage() {
 		return image;
 	}
+
 	public void setImage(String image) {
 		this.image = image;
 	}
-
 
 }

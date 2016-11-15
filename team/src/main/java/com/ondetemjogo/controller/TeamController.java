@@ -25,11 +25,11 @@ public class TeamController {
 	private TeamService teamService;
 
 	@RequestMapping(value = { "/team", "/team/{search}" }, method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public ResponseEntity<Set<TeamDTO>> getEventsWithSearch(@PathVariable(value = "search", required = false) String search) {
+	public ResponseEntity<Set<TeamDTO>> getTeamsWithSearch(@PathVariable(value = "search", required = false) String search) {
 
-		List<Team> events = teamService.getTeams(search);
+		List<Team> teams = teamService.getTeams(search);
 		Set<TeamDTO> teamDTOs = new HashSet<>();
-		for (Team team : events) {
+		for (Team team : teams) {
 			teamDTOs.add(new TeamAdapter(team).build());
 		}
 		return ResponseEntity.ok().body(teamDTOs);
