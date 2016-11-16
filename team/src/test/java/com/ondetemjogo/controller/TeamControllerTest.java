@@ -7,6 +7,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.junit.Before;
@@ -50,12 +51,11 @@ public class TeamControllerTest {
 	public void shouldCallService() throws Exception {
 		List<TeamDTO> teams = new ArrayList<>();
 		Team team = new Team();
-		team.setIdTeam((long) 0);
+		team.setIdTeam(1L);
 		team.setName("Flamengo");
 		team.setImage("/images/flamengo.png");
 		teams.add(new TeamAdapter(team).build());
 		String expected = json.write(teams).getJson();
-		System.out.println("\n" + expected + "\n");
 		given(service.getTeams("Flamengo")).willReturn(Arrays.asList(team));
 
 		this.mvc.perform(get("/api/v1/team/Flamengo").accept(MediaType.APPLICATION_JSON_UTF8))
@@ -67,7 +67,7 @@ public class TeamControllerTest {
 	public void shouldCallServiceWithoutSearch() throws Exception {
 		List<TeamDTO> teams = new ArrayList<>();
 		Team team = new Team();
-		team.setIdTeam((long) 0);
+		team.setIdTeam(1L);
 		team.setName("Flamengo");
 		team.setImage("/images/flamengo.png");
 		teams.add(new TeamAdapter(team).build());
@@ -76,7 +76,16 @@ public class TeamControllerTest {
 
 		this.mvc.perform(get("/api/v1/team/").accept(MediaType.APPLICATION_JSON_UTF8)).andExpect(status().isOk())
 				.andExpect(content().string(expected));
+	}
+	
+	@Test
+	public void shouldCallServiceAndDoesntReturnNothing() throws Exception {
+		List<TeamDTO> teams = new ArrayList<>();
+		String expected = json.write(teams).getJson();
+		given(service.getTeams("Salamaleico")).willReturn(Collections.emptyList());
 
+		this.mvc.perform(get("/api/v1/team/Salamaleico").accept(MediaType.APPLICATION_JSON_UTF8))
+				.andExpect(status().isOk()).andExpect(content().string(expected));
 	}
 
 }

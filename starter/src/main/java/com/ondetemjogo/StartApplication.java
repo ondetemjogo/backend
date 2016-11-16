@@ -6,16 +6,13 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.FilterType;
 
-import com.ondetemjogo.StartEventApplication;
-import com.ondetemjogo.StartNewEventApplication;
-
 @SpringBootApplication
-@ComponentScan(basePackages = "com.ondetemjogo", 
-excludeFilters = @Filter(type = FilterType.ASSIGNABLE_TYPE, classes = {StartEventApplication.class, StartNewEventApplication.class})) 
+@ComponentScan(basePackages = "com.ondetemjogo", excludeFilters = @Filter(type = FilterType.ASSIGNABLE_TYPE, classes = {
+		StartEventApplication.class, StartNewEventApplication.class, StartTeamApplication.class }))
 public class StartApplication {
 
-    public static void main(String[] args) throws Exception {
-        SpringApplication.run(StartApplication.class, args);
-    }
+	public static void main(String[] args) throws Exception {
+		SpringApplication.run(StartApplication.class, args);
+	}
 
 }

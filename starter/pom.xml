@@ -99,6 +99,11 @@
 			<artifactId>new-event</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.ondetemjogo</groupId>
+			<artifactId>team</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 	</dependencies>
 
 	<build>
